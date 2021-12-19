@@ -1,0 +1,23 @@
+FROM node:16-alpine AS development
+
+WORKDIR /usr/src/app
+
+CMD [ "yarn", "workspace", "backend", "dev" ]
+
+
+FROM node:16-alpine AS production
+
+WORKDIR /usr/src/app
+
+COPY ./package*.json ./
+COPY ./backend/package.json ./backend
+
+RUN yarn install --prod
+
+COPY ./ ./
+
+RUN yarn workspace backend build
+
+EXPOSE 3001
+
+CMD [ "yarn", "workspace", "backend", "prod" ]

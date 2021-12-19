@@ -1,0 +1,34 @@
+version: "3.7"
+
+services:
+  # rabbitmq:
+  #   image: rabbitmq:3.8.14-management
+  #   container_name: rabbitmq
+  #   ports:
+  #       - 5672:5672
+  #       - 15672:15672
+  #   volumes:
+  #       - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+  #       - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+  backend:
+    build: 
+      context: .
+      dockerfile: BackendDockerfile
+      target: development
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./:/usr/src/app
+  frontend:
+    build: 
+      context: .
+      dockerfile: FrontendDockerfile
+      target: development
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./:/usr/src/app
+
+networks:
+  default: 
+    driver: bridge

@@ -1,0 +1,71 @@
+{
+  "name": "backend",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "nest build",
+    "start": "nest start",
+    "dev": "nest start --watch",
+    "prod": "node dist/main",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage"
+  },
+  "workspaces": {
+    "nohoist": [
+      "@mikro-orm/**",
+      "@nestjs/**"
+    ]
+  },
+  "dependencies": {
+    "@mikro-orm/core": "^4.5.9",
+    "@mikro-orm/mongodb": "^4.5.9",
+    "@mikro-orm/nestjs": "^4.3.1",
+    "@nestjs/common": "^8.2.4",
+    "@nestjs/config": "^1.1.5",
+    "@nestjs/core": "^8.2.4",
+    "@nestjs/jwt": "^8.0.0",
+    "@nestjs/passport": "^8.0.1",
+    "@nestjs/platform-fastify": "^8.2.4",
+    "bcryptjs": "^2.4.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
+    "dotenv": "^10.0.0",
+    "passport": "^0.5.2",
+    "passport-jwt": "^4.0.0",
+    "random-js": "^2.1.0",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "rxjs": "^7.4.0"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^8.1.6",
+    "@nestjs/schematics": "^8.0.5",
+    "@nestjs/testing": "^8.2.4",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/jest": "^27.0.3",
+    "@types/jsonwebtoken": "^8.5.6",
+    "@types/mongodb": "^3.6.20",
+    "@types/node": "^17.0.0",
+    "@types/passport-jwt": "^3.0.6",
+    "jest": "^27.4.5",
+    "ts-jest": "^27.1.1"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "ts"
+    ],
+    "rootDir": "./src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}

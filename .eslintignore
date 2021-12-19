@@ -1,0 +1,5 @@
+node_modules
+.eslintrc.js
+
+backend/dist/
+frontend/.next
