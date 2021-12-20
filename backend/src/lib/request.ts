@@ -1,6 +1,6 @@
-import { Request as BaseRequest } from "express"
+import { FastifyRequest } from "fastify"
 import { UserDTO } from "../auth/dtos/user"
 
-export type Request = BaseRequest & {
+export type Request = FastifyRequest & {
   user: UserDTO
 }
